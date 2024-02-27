@@ -13,13 +13,13 @@ interface Empilhavel {
 class PilhaEstatica : Empilhavel {
     //variaveis globais(instancia)
     private var ponteiroTopo: Int
-    private var dados: Array:<Any?>
+    private var dados: Array<Any?>
     //construtores
     constructor() : this(10)
     
     constructor(tamanho: Int){
-        ponteiroTopo = -1,
-        dados =  arrayofNulls(tamanho) 
+        ponteiroTopo = -1;
+        dados =  arrayOfNulls(tamanho) 
     }
     //metodos auxiliares
     override fun estaCheia(): Boolean{
@@ -51,7 +51,7 @@ class PilhaEstatica : Empilhavel {
         }
     }
     override fun desempilhar(): Any?{
-        var retorno: Any = null
+        var retorno: Any? = null
         if(!estaVazia()){
             retorno = dados[ponteiroTopo]
             ponteiroTopo--
@@ -59,7 +59,7 @@ class PilhaEstatica : Empilhavel {
         else{
             println("Stack is empty")
         }
-        
+        return retorno
         
     }
     override fun topo(): Any?{
@@ -75,3 +75,24 @@ class PilhaEstatica : Empilhavel {
         return retorno
     }
 }
+
+	fun main(args: Array<String>){
+        var pilha = PilhaEstatica(20)
+        pilha.empilhar("Instituto")
+        pilha.empilhar("Federal")
+        println("Topo: ${pilha.topo()}")
+        pilha.empilhar("de")
+        pilha.empilhar("Educacao")
+        pilha.empilhar("Ciencia")
+        val dadoQualquer = pilha.desempilhar()
+        pilha.empilhar("e")
+        pilha.empilhar("tecnologia")
+        pilha.empilhar(dadoQualquer)
+        println("Dados: ${pilha.imprimir()}")
+        
+        
+        
+        
+        
+        
+    }
