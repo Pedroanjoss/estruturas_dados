@@ -63,7 +63,7 @@ class PilhaEstatica : Empilhavel {
         
     }
     override fun topo(): Any?{
-        var retorno = null
+        var retorno: Any? = null
         
         if(!estaVazia()){
             retorno =  dados[ponteiroTopo]
